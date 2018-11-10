@@ -1,0 +1,14 @@
+main.exe: main.o board.o game.o
+    g++ -o main.exe main.o board.o game.o -std=c++11
+
+main.o: main.cpp game.h board.h
+	g++ -c main.cpp -std=c++11
+
+game.o: game.cpp game.h board.h const.h
+	g++ -c game.cpp -std=c++11
+
+board.o: board.cpp board.h const.h
+	g++ -c board.cpp -std=c++11
+
+clean:
+	rm *.o *.stackdump *~
